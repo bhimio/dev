@@ -1,3 +1,4 @@
+package mod1;
 public class IAmYou {
     
     public static void main(String[] args){

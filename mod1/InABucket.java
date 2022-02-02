@@ -1,3 +1,4 @@
+package mod1;
 public class InABucket {
 
     public static void main(String[] args) {

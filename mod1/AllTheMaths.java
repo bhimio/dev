@@ -1,5 +1,4 @@
-
-
+package mod1;
 public class AllTheMaths {
     public static void main(String[] args) {
         System.out.print("1 + 2 is: ");

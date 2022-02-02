@@ -1,3 +1,4 @@
+package mod1;
 public class MoreBucketsMoreFun {
     public static void main(String[] args) {
 
