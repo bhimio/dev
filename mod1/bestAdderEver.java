@@ -10,7 +10,7 @@ public class bestAdderEver {
         float num2;
         float num3;
 
-        // declare string
+        // Declare string
         String Stringnum1;
         String Stringnum2;
         String Stringnum3;
@@ -32,24 +32,24 @@ public class bestAdderEver {
         System.out.println("please enter num3");
         Stringnum3 = myScanner.nextLine();
 
-        // conversion
+        // Conversion
         num1 = Float.parseFloat(Stringnum1);
         num2 = Float.parseFloat(Stringnum2);
         num3 = Float.parseFloat(Stringnum3);
 
-        // the adder part
+        // The adder part
         sum1 = num1 + num2;
 
         // PRINT!
         System.out.println(num1 + " + " + num2 + " = " + sum1);
 
-        // the adder part
+        // The adder part
         sum2 = sum1 + num3;
 
         // PRINT!
         System.out.println(sum1 + " + " + num3 + " = " + sum2);
 
-        // the conclusion
+        // The conclusion
         System.out.println("/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#/#");
         System.out.println("how was this program?");
         rating = myScanner.nextLine();
