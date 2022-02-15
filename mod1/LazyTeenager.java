@@ -16,16 +16,16 @@ public class LazyTeenager {
         // while loop
         while (roomClean == false) {
             timesAsked ++;
+            precentChance = 100 / (timesAsked * 5);
+            otherThing = chance.nextInt(precentChance);
+            if (otherThing == precentChance) {
+                roomClean = true;
+            }
             if (timesAsked > 15) {
                 System.out.println("thats it youre grounded and i'm taking youre Xbox!");
                 break;
             } else {
                 System.out.println("clean youre room!");
-            }
-            precentChance = 100 / (timesAsked * 5);
-            otherThing = chance.nextInt(precentChance);
-            if (otherThing == precentChance) {
-                roomClean = true;
             }
         }
     }
