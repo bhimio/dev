@@ -6,6 +6,41 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch coinFliper",
+            "request": "launch",
+            "mainClass": "mod1.coinFliper",
+            "projectName": "dev_f214fc7c"
+        },
+        {
+            "type": "java",
+            "name": "Launch highRoler",
+            "request": "launch",
+            "mainClass": "mod1.highRoler",
+            "projectName": "dev_f214fc7c"
+        },
+        {
+            "type": "java",
+            "name": "Launch SpaceRustelers",
+            "request": "launch",
+            "mainClass": "mod1.SpaceRustelers",
+            "projectName": "dev_f214fc7c"
+        },
+        {
+            "type": "java",
+            "name": "Launch Tester",
+            "request": "launch",
+            "mainClass": "mod1.Tester",
+            "projectName": "dev_f214fc7c"
+        },
+        {
+            "type": "java",
+            "name": "Launch spaceJam",
+            "request": "launch",
+            "mainClass": "mod1.spaceJam",
+            "projectName": "dev_f214fc7c"
+        },
+        {
+            "type": "java",
             "name": "Launch DoItBetter",
             "request": "launch",
             "mainClass": "mod1.DoItBetter",
