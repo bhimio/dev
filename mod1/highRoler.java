@@ -12,28 +12,29 @@ public class highRoler {
        Scanner myScanner = new Scanner(System.in);
 
        // set variables
-       int roll, die, die2, die3, die4, die5, die6, die7, die8, die9, die10, Amount;
-       String stringroll, stringAmount;
+       int sides, die, die2, die3, die4, die5, die6, die7, die8, die9, die10, Amount;
+       String stringSides, stringAmount;
 
        // ask die
        System.out.println("how many sides dose youre die have?");
-       stringroll = myScanner.nextLine();
-       roll = Integer.parseInt(stringroll);
+       stringSides = myScanner.nextLine();
+       sides = Integer.parseInt(stringSides);
        System.out.println("how many die do you have?");
        stringAmount = myScanner.nextLine();
        Amount = Integer.parseInt(stringAmount);
+       sides++;
 
        // roll dice
-       die = randomizer.nextInt(roll);
-       die2 = randomizer.nextInt(roll);
-       die3 = randomizer.nextInt(roll);
-       die4 = randomizer.nextInt(roll);
-       die5 = randomizer.nextInt(roll);
-       die6 = randomizer.nextInt(roll);
-       die7 = randomizer.nextInt(roll);
-       die8 = randomizer.nextInt(roll);
-       die9 = randomizer.nextInt(roll);
-       die10 = randomizer.nextInt(roll);
+       die = randomizer.nextInt(sides);
+       die2 = randomizer.nextInt(sides);
+       die3 = randomizer.nextInt(sides);
+       die4 = randomizer.nextInt(sides);
+       die5 = randomizer.nextInt(sides);
+       die6 = randomizer.nextInt(sides);
+       die7 = randomizer.nextInt(sides);
+       die8 = randomizer.nextInt(sides);
+       die9 = randomizer.nextInt(sides);
+       die10 = randomizer.nextInt(sides);
 
        if (Amount > 10){
            System.out.println("you are roling to many dice were setinng it to ten");
@@ -41,12 +42,12 @@ public class highRoler {
        }
        System.out.println("NOW LETS ROLLLLL!!!");
        if (Amount == 1) {
-           if (roll == 1) {
+           if (die == 1) {
                System.out.println("you roled a critical failure: you rolled a 1");
-           } else if (roll == die) {
+           } else if (sides == die) {
             System.out.println("you rolled a critical sucsess: you rolled a" + die);
            } else {
-               System.out.println("youre die roll is " + roll);
+               System.out.println("youre die roll is " + sides);
            }
        } else {
         System.out.println("your first die roll is " + die);
@@ -60,7 +61,7 @@ public class highRoler {
                     if (Amount > 5) {
                         System.out.println("your sixth die roll is " + die6);
                         if (Amount > 6) {
-                            System.out.println("your seventh die roll is " + die);
+                            System.out.println("your seventh die roll is " + die7);
                             if (Amount > 7) {
                                 System.out.println("your eighth die roll is " + die8);
                                 if (Amount > 8) {
