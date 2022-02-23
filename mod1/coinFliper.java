@@ -3,6 +3,7 @@ package mod1;
 import java.util.Random;
 
 public class coinFliper {
+    
     public static void main(String[] args) {
         // set random
         Random randomizer = new Random();
@@ -16,7 +17,7 @@ public class coinFliper {
         if (coin) {
             System.out.println("you got heads");
         } else {
-            System.out.println("you got tails");
+            System.out.println("you got tails"); 
         }
     }
 }

@@ -3,49 +3,45 @@ import java.util.Scanner;
 
 public class Window {
     public static void main(String[] args) {
-        //declare hight and width
-        float hight;
+        // Declare variables for height and width
+        float height;
         float width;
-        //strings
-        String stringHight;
+        // Declare String variables to hold the user's height and width
+        // input
+        String stringHeight;
         String stringWidth;
-        String stringReview;
-        //other stuff
-        float price;
-        float pirimiter;
-        float area;
 
-        //scanner
-        Scanner myScanner = new Scanner(System.in);
+        // Declare other variables
+        float areaOfWindow;
+        float cost;
+        float perimeterOfWindow;
 
-        //hight
-        System.out.println("please enter window hight in feet");
-        stringHight = myScanner.nextLine();
-        
-        //whidth
-        System.out.println("please enter window width in feet");
-        stringWidth = myScanner.nextLine();
-        
-        //conversion
-        hight = Float.parseFloat(stringHight);
+        // Declare and initialize our Scanner
+        Scanner sc = new Scanner(System.in);
+
+        // Get input from user
+        System.out.println("Please enter window height:");
+        stringHeight = sc.nextLine();
+        System.out.println("Please enter window width:");
+        stringWidth = sc.nextLine();
+
+        // Convert String values of height and width to floats
+        height = Float.parseFloat(stringHeight);
         width = Float.parseFloat(stringWidth);
 
-        //math
-        pirimiter = 2 * (hight + width);
-        area = hight * width;
-        price = ((3.50f * area) + (2.25f * pirimiter));
-        
-        //print results
-        System.out.println("window hight = " + stringHight +(" feet"));
-        System.out.println("window whidth = " + stringWidth + (" feet"));
-        System.out.println("window area = " + area + (" square feet"));
-        System.out.println("window lining = " + pirimiter + (" feet"));
-        System.out.println("price = $" + price);
-        System.out.println("");
-        // Scanner again
-        System.out.println("was this program good");
-        stringReview = myScanner.nextLine();
-        System.out.println("thank you for your input");
-        System.out.println(stringReview);
+        // Calculate area of window
+        areaOfWindow = height * width;
+
+        // Calculate the perimeter of the window
+        perimeterOfWindow = 2 * (height + width);
+
+        // Calculate total cost - use hard coded for material cost
+        cost = ((3.50f * areaOfWindow) + (2.25f * perimeterOfWindow));
+
+        System.out.println("Window height = " + stringHeight);
+        System.out.println("Window width = " + stringWidth);
+        System.out.println("Window area = " + areaOfWindow);
+        System.out.println("Window perimeter = " + perimeterOfWindow);
+        System.out.println("Total Cost = " + cost);
     }
 }

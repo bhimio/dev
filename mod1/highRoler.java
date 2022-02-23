@@ -36,9 +36,10 @@ public class highRoler {
        die9 = randomizer.nextInt(sides);
        die10 = randomizer.nextInt(sides);
 
-       if (Amount > 10){
-           System.out.println("you are roling to many dice were setinng it to ten");
-           Amount = 10;
+       while(Amount > 10){
+           System.out.println("you are roling to many dice. please roll a diferent amount: ");
+           stringAmount = myScanner.nextLine();
+           Amount = Integer.parseInt(stringAmount);
        }
        System.out.println("NOW LETS ROLLLLL!!!");
        if (Amount == 1) {
@@ -50,6 +51,7 @@ public class highRoler {
                System.out.println("youre die roll is " + sides);
            }
        } else {
+        System.out.println("NOW LETS ROLLLLL!!!");
         System.out.println("your first die roll is " + die);
         System.out.println("your second die roll is " + die2);
         if (Amount > 2) {

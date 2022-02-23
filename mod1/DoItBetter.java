@@ -3,6 +3,7 @@ package mod1;
 import java.util.Scanner;
 
 public class DoItBetter {
+    
     public static void main(String[] args) {
 
         //declare variables
