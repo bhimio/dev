@@ -2,13 +2,29 @@ package console;
 
 import java.util.Scanner;
 
+import model.Book;
+
 public class Console {
     private Scanner sc;
     public Console(Scanner sc) {
         this.sc = sc;
     }
 
-
+    public void printMenue(){
+        System.out.println("welcome to the library");
+        System.out.println("you can preform actions acording to the number you enter");
+        System.out.println("1: add a book to the library");
+        System.out.println("2: search for a book in the librairy");
+        System.out.println("3: list the books in the librairy");
+        System.out.println("4: check out a book from the librairy");
+        System.out.println("5: exit the librairy");
+    }
+    public void printBook(Book book) {
+        System.out.println("title: " + book.getTitle());
+        System.out.println("author: " + book.getAuthor());
+        System.out.println("genre: " + book.getGenre());
+        System.out.println("id: " + book.getId());
+    }
     public int getInt(String prompt) {
         boolean isCorrect = false;
         int value = 0;
