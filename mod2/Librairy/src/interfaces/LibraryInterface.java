@@ -10,5 +10,6 @@ public interface LibraryInterface {
     public Book searchByAuthor(String value);
     public void checkOut(Book book, boolean checkedOut);
     public Client create(Client client);
+    public void print();
     // public boolean delete(String value, String type);
 }

@@ -2,16 +2,20 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
+import console.Console;
 import interfaces.LibraryInterface;
 import model.Book;
 import model.Client;
 
 public class LibraryInMemoryImpl implements LibraryInterface{
     private List<Book> libraryList = new ArrayList<>();
-    //private List<Client> clientList = new ArrayList<>();
+    private List<Client> clientList = new ArrayList<>();
     private static int id = 11111111;
     private static int id2 = 11111111;
+    Scanner sc = new Scanner(System.in);
+    Console console = new Console(sc);
     public Book wrongBook = new Book("uh oh", "uh oh", "uh oh");
 
     @Override
@@ -56,7 +60,8 @@ public class LibraryInMemoryImpl implements LibraryInterface{
     }
     @Override
     public void checkOut(Book book, boolean checkedOut){
-        //book.setCheckedOut(checkedOut);
+        this.searchByName(book.getTitle()).setCheckedOut(checkedOut);
+
     }
 
     @Override
@@ -66,5 +71,11 @@ public class LibraryInMemoryImpl implements LibraryInterface{
         client.setBooks(client.getBooks());
         client.setName(client.getName());
         return client;
+    }
+    @Override
+    public void print() {
+         for (Book b : libraryList) {
+             console.printBook(b);
+         }
     }
 }

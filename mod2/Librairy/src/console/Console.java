@@ -20,10 +20,13 @@ public class Console {
         System.out.println("5: exit the librairy");
     }
     public void printBook(Book book) {
+        System.out.println("___________________________");
         System.out.println("title: " + book.getTitle());
         System.out.println("author: " + book.getAuthor());
         System.out.println("genre: " + book.getGenre());
         System.out.println("id: " + book.getId());
+        System.out.println("is checked out: " + book.getCheckedOut());
+        System.out.println("___________________________");
     }
     public int getInt(String prompt) {
         boolean isCorrect = false;

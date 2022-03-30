@@ -63,18 +63,49 @@ public class App {
                     }
                     break;
                 case 3:
-
+                    impl.print();
                     break;
                 case 4:
-
-                    break;
-                case 5:
+                    bookType = console.getString(getBookTypePrompt);
+                    switch (bookType) {
+                        case "id":
+                            sampleBook = impl.searchById(console.getString(getBookIdPrompt));
+                            if (sampleBook == null || sampleBook.getGenre() == "uh oh") {
+                                System.out.println("the book you where looking for is non existent");
+                            } else {
+                                impl.checkOut(sampleBook, true);
+                           }
+                            break;
+                        case "title":
+                        case "name":
+                            sampleBook = impl.searchByName(console.getString(getBookNamePrompt));
+                            if (sampleBook == null) {
+                                System.out.println("the book you where looking for is non existent");
+                            } else {
+                                impl.checkOut(sampleBook, true);
+                           }
+                            break;
+                        case "author":
+                            sampleBook = impl.searchByAuthor(console.getString(getBookAuthorPrompt));
+                            if (sampleBook == null) {
+                                System.out.println("the book you where looking for is non existent");
+                            } else {
+                               impl.checkOut(sampleBook, true);
+                            }
+                            break;
+                        default:
+                        System.out.println("the given value was incorrect");
+                            break;
+                            //TODO
+                    }   
+                break;
+            case 5:
                     System.out.println("exiting program");
                     satifaction = true;
-                    break;
-                default:
-                System.out.println("the entered number does not match the suplied numbers: \n please try again");
-                    break;
+                break;
+            default:
+            System.out.println("the entered number does not match the suplied numbers: \n please try again");
+                break;
             }
         } while (!satifaction);
     }
