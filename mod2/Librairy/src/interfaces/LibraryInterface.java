@@ -5,7 +5,9 @@ import model.Client;
 
 public interface LibraryInterface {
     public Book create(Book book);
-    public Book search(String value, String type);
+    public Book searchById(String value);
+    public Book searchByName(String value);
+    public Book searchByAuthor(String value);
     public void checkOut(Book book, boolean checkedOut);
     public Client create(Client client);
     // public boolean delete(String value, String type);
