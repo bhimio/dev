@@ -11,7 +11,7 @@ import model.Client;
 
 public class LibraryInMemoryImpl implements LibraryInterface{
     private List<Book> libraryList = new ArrayList<>();
-    private List<Client> clientList = new ArrayList<>();
+    //private List<Client> clientList = new ArrayList<>();
     private static int id = 11111111;
     private static int id2 = 11111111;
     Scanner sc = new Scanner(System.in);
@@ -43,7 +43,7 @@ public class LibraryInMemoryImpl implements LibraryInterface{
     @Override
     public Book searchByName(String value){
         for (Book b: libraryList) {
-            if (value == b.getTitle()) {
+            if (value.equals(b.getTitle())) {
                 return b;
             }
         }
@@ -52,7 +52,7 @@ public class LibraryInMemoryImpl implements LibraryInterface{
     @Override
     public Book searchByAuthor(String value){
         for (Book b : libraryList) {
-            if (value == b.getAuthor()) {
+            if (value.equals(b.getAuthor())) {
                 return b;
             }
         }
@@ -77,5 +77,42 @@ public class LibraryInMemoryImpl implements LibraryInterface{
          for (Book b : libraryList) {
              console.printBook(b);
          }
+    }
+    @Override
+    public Book findType(String bookType, Book sampleBook) {
+        String getBookNamePrompt = "what is the title of this book";
+        String getBookAuthorPrompt = "who is the author of this book";
+        String getBookIdPrompt = "what is the id of this book";
+        switch (bookType) {
+            case "id":
+                sampleBook = this.searchById(console.getString(getBookIdPrompt));
+                if (sampleBook == null || sampleBook.getGenre() == "uh oh") {
+                    System.out.println("the book you where looking for is non existent");
+                } else {
+                    return sampleBook;
+                }
+                break;
+            case "title":
+            case "name":
+                sampleBook = this.searchByName(console.getString(getBookNamePrompt));
+                if (sampleBook == null) {
+                    System.out.println("the book you where looking for is non existent");
+                } else {
+                    return sampleBook;
+                }
+                break;
+            case "author":
+                sampleBook = this.searchByAuthor(console.getString(getBookAuthorPrompt));
+                if (sampleBook == null) {
+                    System.out.println("the book you where looking for is non existent");
+                } else {
+                   return sampleBook;
+                }
+                break;
+            default:
+            System.out.println("the given value was incorrect");
+                break;
+        }
+        return null;
     }
 }

@@ -11,5 +11,6 @@ public interface LibraryInterface {
     public void checkOut(Book book, boolean checkedOut);
     public Client create(Client client);
     public void print();
+    public Book findType(String type, Book sampleBook);
     // public boolean delete(String value, String type);
 }

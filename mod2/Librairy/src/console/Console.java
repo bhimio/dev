@@ -11,13 +11,13 @@ public class Console {
     }
 
     public void printMenue(){
-        System.out.println("welcome to the library");
-        System.out.println("you can preform actions acording to the number you enter");
+        
         System.out.println("1: add a book to the library");
         System.out.println("2: search for a book in the librairy");
         System.out.println("3: list the books in the librairy");
         System.out.println("4: check out a book from the librairy");
-        System.out.println("5: exit the librairy");
+        System.out.println("5: return a book to the librairy");
+        System.out.println("6: exit the librairy");
     }
     public void printBook(Book book) {
         System.out.println("___________________________");
