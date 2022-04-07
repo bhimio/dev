@@ -4,7 +4,7 @@ import model.Book;
 import model.Client;
 
 public interface LibraryInterface {
-    public Book create(Book book);
+    public void create(Book book);
     public Book searchById(String value);
     public Book searchByName(String value);
     public Book searchByAuthor(String value);

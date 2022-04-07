@@ -19,11 +19,10 @@ public class LibraryInMemoryImpl implements LibraryInterface{
     public Book wrongBook = new Book("uh oh", "uh oh", "uh oh");
 
     @Override
-    public Book create(Book book){
+    public void create(Book book){
         book.setId(id++);
         book.setCheckedOut(false);
         libraryList.add(book);
-        return book;
     }
     @Override
     public Book searchById(String value){

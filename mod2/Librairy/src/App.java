@@ -17,11 +17,8 @@ public class App {
         String getBookNamePrompt = "what is the title of this book";
         String getBookAuthorPrompt = "who is the author of this book";
         String getBookGenrePrompt = "which genre is this book located";
-        String getBookIdPrompt = "what is the id of this book";
+        //String getBookIdPrompt = "what is the id of this book";
         String getBookTypePrompt = "what type will you serch by";
-
-        
-        impl.create(new Book("go", "the goose", "childrens books"));
 
         System.out.println("welcome to the library");
         System.out.println("you can preform actions acording to the number you enter");
@@ -51,24 +48,28 @@ public class App {
                 case 4:
                     bookType = console.getString(getBookTypePrompt);
                     sampleBook = impl.findType(bookType, sampleBook);
-                    if (sampleBook != null) {
+                    if (sampleBook != null && sampleBook.getCheckedOut() == false) {
                         impl.checkOut(sampleBook, true);
+                    } else if (sampleBook.getCheckedOut() == true) {
+                        System.out.println("the book you are checking out is already cheked out");
                     }
-                break;
-            case 6:
+                    break;
+                case 6:
                     System.out.println("exiting librairy");
                     satifaction = true;
-                break;
-            case 5:
-                bookType = console.getString(getBookTypePrompt);
-                sampleBook = impl.findType(bookType, sampleBook);
-                if (sampleBook != null) {
-                    impl.checkOut(sampleBook, false);
-                }
-                break;
-            default:
-            System.out.println("the entered number does not match the suplied numbers: \n please try again");
-                break;
+                    break;
+                case 5:
+                    bookType = console.getString(getBookTypePrompt);
+                    sampleBook = impl.findType(bookType, sampleBook);
+                    if (sampleBook != null && sampleBook.getCheckedOut() == true) {
+                        impl.checkOut(sampleBook, false);
+                    } else if (sampleBook.getCheckedOut() == false) {
+                        System.out.println("the book you are returning is not checked out yet");
+                    }
+                    break;
+                default:
+                    System.out.println("the entered number does not match the suplied numbers: \n please try again");
+                    break;
             }
         } while (!satifaction);
     }

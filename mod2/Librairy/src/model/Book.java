@@ -20,7 +20,7 @@ public class Book {
         this.genre = genre;
     }
 
-    public Object getCheckedOut() {
+    public boolean getCheckedOut() {
         return this.checkedOut;
     }
 
