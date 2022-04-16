@@ -19,7 +19,7 @@ public class App {
         String getBookGenrePrompt = "which genre is this book located";
         //String getBookIdPrompt = "what is the id of this book";
         String getBookTypePrompt = "what type will you serch by";
-
+        impl.install();
         System.out.println("welcome to the library");
         System.out.println("you can preform actions acording to the number you enter");
 
@@ -37,8 +37,10 @@ public class App {
                 case 2:
                     bookType = console.getString(getBookTypePrompt);
                     sampleBook = impl.findType(bookType, sampleBook);
-                    if (sampleBook != null) {
+                    if (sampleBook != null && bookType != "author") {
                         console.printBook(sampleBook);
+                    } else if (bookType == "author") {
+                        
                     }
                     
                     break;

@@ -1,6 +1,9 @@
 package dao;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,6 +14,7 @@ import model.Client;
 
 public class LibraryInMemoryImpl implements LibraryInterface{
     private List<Book> libraryList = new ArrayList<>();
+    private HashMap<String, Book> librairyMap = new HashMap<>();
     //private List<Client> clientList = new ArrayList<>();
     private static int id = 11111111;
     private static int id2 = 11111111;
@@ -49,13 +53,14 @@ public class LibraryInMemoryImpl implements LibraryInterface{
         return null;
     }
     @Override
-    public Book searchByAuthor(String value){
+    public List<Book> searchByAuthor(String value){
+        List<Book> bookList = new ArrayList<>();
         for (Book b : libraryList) {
             if (value.equals(b.getAuthor())) {
-                return b;
+                bookList.add(b);
             }
         }
-        return null;
+        return bookList;
     }
     @Override
     public void checkOut(Book book, boolean checkedOut){
@@ -79,6 +84,7 @@ public class LibraryInMemoryImpl implements LibraryInterface{
     }
     @Override
     public Book findType(String bookType, Book sampleBook) {
+        
         String getBookNamePrompt = "what is the title of this book";
         String getBookAuthorPrompt = "who is the author of this book";
         String getBookIdPrompt = "what is the id of this book";
@@ -101,11 +107,14 @@ public class LibraryInMemoryImpl implements LibraryInterface{
                 }
                 break;
             case "author":
-                sampleBook = this.searchByAuthor(console.getString(getBookAuthorPrompt));
-                if (sampleBook == null) {
+                List<Book> bookList = new ArrayList<>();
+                bookList = this.searchByAuthor(console.getString(getBookAuthorPrompt));
+                if (bookList == null) {
                     System.out.println("the book you where looking for is non existent");
                 } else {
-                   return sampleBook;
+                   for (Book book : bookList) {
+                       
+                   }
                 }
                 break;
             default:
@@ -113,5 +122,29 @@ public class LibraryInMemoryImpl implements LibraryInterface{
                 break;
         }
         return null;
+    }
+    
+    @Override
+    public void install(){
+        Scanner read = new Scanner(
+            new BufferedReader(new FileReader("OutFile.txt")));
+            String[] parts;
+            String line;
+            boolean ischeckedout;
+            int id;
+        while (read.hasNextLine()) {
+            line = read.nextLine();
+            parts = line.split("::");
+            ischeckedout = Boolean.parseBoolean(parts[3]);
+            id = Integer.parseInt(parts[4]);
+            Book b = new Book();
+            b.setAuthor(parts[1]);
+            b.setTitle(parts[0]);
+            b.setCheckedOut(ischeckedout);
+            b.setGenre(parts [2]);
+            b.setId(id);
+            //add to in memory list for fast lookup
+            libraryList.add(b);
+        }
     }
 }
