@@ -16,7 +16,7 @@ public class AllTheMaths {
         System.out.print("Is 4 greater than -1? ");
         System.out.println(4 > -1);
 
-        System.out.println("\n****** Now make the computer do some harder maths!");
+        System.out.println("\n*** Now make the computer do some harder maths! ");
         
         System.out.print("8043.52 minus 4.2 plus 23 divided by 56 times -76.13 is: ");
         System.out.println(8045.52 - 4.2 + 23.0 / 56.0 * -76.13);
