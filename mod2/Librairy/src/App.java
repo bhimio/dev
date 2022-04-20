@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,6 +13,7 @@ public class App {
     public static void main(String[] args) throws Exception {
         LibraryInterface impl = new LibraryInMemoryImpl();
         List<Book> sampleList = new ArrayList<>();
+        PrintWriter print = new PrintWriter(new FileWriter("/home/bhima/dev/mod2/Librairy/src/storage/OutFile.txt"));
         Scanner sc = new Scanner(System.in);
         Console console = new Console(sc);
         boolean satifaction = false;
@@ -35,7 +38,7 @@ public class App {
                     createBook.setTitle(console.getString(getBookNamePrompt));
                     createBook.setAuthor(console.getString(getBookAuthorPrompt));
                     createBook.setGenre(console.getString(getBookGenrePrompt));
-                    impl.create(createBook);
+                    impl.create(createBook, print);
                     break;
                 case 2:
                     bookType = console.getString(getBookTypePrompt);
@@ -46,8 +49,8 @@ public class App {
                         }
                     } else if (bookType.equals("author") || bookType.equals("genre")) {
                         sampleList = impl.findType(bookType, sampleList);
-                        if (sampleBook != null) {
-                            console.printBook(sampleBook);
+                        if (sampleList != null) {
+                            console.printBook(sampleList);
                         }
                     }
                     
@@ -57,7 +60,7 @@ public class App {
                     break;
                 case 4:
                     bookType = console.getString(getBookTypePrompt);
-                    if (bookType.equals("author")) {
+                    if (!bookType.equals("author") && !bookType.equals("Genre")){
                         sampleBook = impl.findType(bookType, sampleBook);
                         if (sampleBook != null && sampleBook.getCheckedOut() == false) {
                             impl.checkOut(sampleBook, true);

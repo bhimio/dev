@@ -1,5 +1,6 @@
 package console;
 
+import java.util.List;
 import java.util.Scanner;
 
 import model.Book;
@@ -27,6 +28,11 @@ public class Console {
         System.out.println("id: " + book.getId());
         System.out.println("is checked out: " + book.getCheckedOut());
         System.out.println("___________________________");
+    }
+    public void printBook(List<Book> librairyList) {
+        for (Book book : librairyList) {
+            this.printBook(book);
+        }
     }
     public int getInt(String prompt) {
         boolean isCorrect = false;
@@ -103,7 +109,7 @@ public class Console {
         boolean yn = false;
         
         do {
-            System.out .println(prompt + " " + yes + "/" + no);
+            System.out.println(prompt + " " + yes + "/" + no);
             whatToDo = sc.nextLine();
             if (whatToDo.equals(yes)) {
                 yn = true;

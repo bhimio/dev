@@ -2,6 +2,7 @@ package dao;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,17 +17,18 @@ public class LibraryInMemoryImpl implements LibraryInterface{
     private List<Book> libraryList = new ArrayList<>();
     private HashMap<String, Book> librairyMap = new HashMap<>();
     //private List<Client> clientList = new ArrayList<>();
-    private static int id = 11111111;
-    private static int id2 = 11111111;
+    private static int id;
+    private static int id2;
     Scanner sc = new Scanner(System.in);
     Console console = new Console(sc);
     public Book wrongBook = new Book("uh oh", "uh oh", "uh oh");
 
     @Override
-    public void create(Book book){
+    public void create(Book book, PrintWriter writer){
         book.setId(id++);
         book.setCheckedOut(false);
         libraryList.add(book);
+        writer.println(book.getTitle() + "::" + book.getAuthor() + "::" + book.getGenre() + "::" + book.getCheckedOut() + "::" + book.getId());
     }
     @Override
     public Book searchById(String value){
@@ -173,7 +175,7 @@ public class LibraryInMemoryImpl implements LibraryInterface{
             //add to in memory list for fast lookup
             libraryList.add(b);
             if (!read.hasNextLine()) {
-                id = b.getId();
+                this.id = id;
             }
         }
     }
