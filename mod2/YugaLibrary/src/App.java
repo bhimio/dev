@@ -3,13 +3,13 @@ import java.util.Scanner;
 
 import console.Console;
 import dao.LibraryInterface;
-import impl.LibraryInMemoryImpl;
+import impl.LibraryFileImpl;
 import model.Book;
 
 public class App {
     public static void main(String[] args) throws Exception {
         // This is where we define what implementation of the library we are running
-        LibraryInterface library = new LibraryInMemoryImpl();
+        LibraryInterface library = new LibraryFileImpl(); //LibraryInMemoryImpl();
         library.load();
 
         // Create the console
@@ -72,6 +72,7 @@ public class App {
                     break;
                 default:
                     System.out.println("Please try again");
+                    break;
             }
 
         } while(choice != 6);
