@@ -87,8 +87,7 @@ public class Console {
         boolean value = false;
         String userInput;
         while(!isCorrect) {
-            System.out.println(prompt);
-            userInput = this.sc.nextLine();
+            userInput = this.getString(prompt);
             try {
                 value = Boolean.parseBoolean(userInput);
                 isCorrect = true;
