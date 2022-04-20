@@ -29,6 +29,8 @@ public class LibraryInMemoryImpl implements LibraryInterface{
         book.setCheckedOut(false);
         libraryList.add(book);
         writer.println(book.getTitle() + "::" + book.getAuthor() + "::" + book.getGenre() + "::" + book.getCheckedOut() + "::" + book.getId());
+        writer.flush();
+        writer.close();
     }
     @Override
     public Book searchById(String value){
