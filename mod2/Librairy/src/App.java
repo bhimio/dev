@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import console.Console;
@@ -8,6 +10,7 @@ import model.Book;
 public class App {
     public static void main(String[] args) throws Exception {
         LibraryInterface impl = new LibraryInMemoryImpl();
+        List<Book> sampleList = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
         Console console = new Console(sc);
         boolean satifaction = false;
@@ -36,11 +39,16 @@ public class App {
                     break;
                 case 2:
                     bookType = console.getString(getBookTypePrompt);
-                    sampleBook = impl.findType(bookType, sampleBook);
-                    if (sampleBook != null && bookType != "author") {
-                        console.printBook(sampleBook);
-                    } else if (bookType == "author") {
-                        
+                    if ( !bookType.equals("author") && !bookType.equals("genre")) {
+                        sampleBook = impl.findType(bookType, sampleBook);
+                        if (sampleBook != null ){
+                            console.printBook(sampleBook);
+                        }
+                    } else if (bookType.equals("author") || bookType.equals("genre")) {
+                        sampleList = impl.findType(bookType, sampleList);
+                        if (sampleBook != null) {
+                            console.printBook(sampleBook);
+                        }
                     }
                     
                     break;
@@ -49,11 +57,15 @@ public class App {
                     break;
                 case 4:
                     bookType = console.getString(getBookTypePrompt);
-                    sampleBook = impl.findType(bookType, sampleBook);
-                    if (sampleBook != null && sampleBook.getCheckedOut() == false) {
-                        impl.checkOut(sampleBook, true);
-                    } else if (sampleBook.getCheckedOut() == true) {
-                        System.out.println("the book you are checking out is already cheked out");
+                    if (bookType.equals("author")) {
+                        sampleBook = impl.findType(bookType, sampleBook);
+                        if (sampleBook != null && sampleBook.getCheckedOut() == false) {
+                            impl.checkOut(sampleBook, true);
+                        } else if (sampleBook.getCheckedOut() == true) {
+                            System.out.println("the book you are checking out is already cheked out");
+                        }
+                    } else {
+                        System.out.println("you cant find this book for certian resons");
                     }
                     break;
                 case 6:

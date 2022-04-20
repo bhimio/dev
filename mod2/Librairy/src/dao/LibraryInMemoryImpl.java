@@ -63,6 +63,16 @@ public class LibraryInMemoryImpl implements LibraryInterface{
         return bookList;
     }
     @Override
+    public List<Book> searchByGenre(String value) {
+        List<Book> bookList = new ArrayList<>();
+        for (Book b : libraryList) {
+            if (value.equals(b.getGenre())) {
+                bookList.add(b);
+            }
+        }
+        return bookList;
+    }
+    @Override
     public void checkOut(Book book, boolean checkedOut){
         this.searchByName(book.getTitle()).setCheckedOut(checkedOut);
 
@@ -106,28 +116,45 @@ public class LibraryInMemoryImpl implements LibraryInterface{
                     return sampleBook;
                 }
                 break;
+            default:
+                System.out.println("the given value was incorrect");
+                break;
+        }
+        return null;
+    }
+
+    @Override
+    public List<Book> findType(String bookType, List sampleList){
+
+        String getBookAuthorPrompt = "who is the author of this book";
+        String getBookGenrePrompt = "which genre is this book located";
+        switch (bookType) {
             case "author":
-                List<Book> bookList = new ArrayList<>();
-                bookList = this.searchByAuthor(console.getString(getBookAuthorPrompt));
-                if (bookList == null) {
-                    System.out.println("the book you where looking for is non existent");
+                sampleList = this.searchByAuthor(console.getString(getBookAuthorPrompt));
+                if (sampleList != null) {
+                    return sampleList;
                 } else {
-                   for (Book book : bookList) {
-                       
-                   }
+                    System.out.println("the book you where looking for is non existent");
+                }
+                break;
+            case "genre":
+                sampleList = this.searchByGenre(console.getString(getBookGenrePrompt));
+                if (sampleList != null) {
+                    return sampleList;
+                } else {
+                    System.out.println("the book you where looking for is non existent");
                 }
                 break;
             default:
-            System.out.println("the given value was incorrect");
+                System.out.println("the given value was incorrect");
                 break;
         }
         return null;
     }
     
     @Override
-    public void install(){
-        Scanner read = new Scanner(
-            new BufferedReader(new FileReader("OutFile.txt")));
+    public void install() throws Exception{
+        Scanner read = new Scanner(new BufferedReader(new FileReader("/home/bhima/dev/mod2/Librairy/src/storage/OutFile.txt")));
             String[] parts;
             String line;
             boolean ischeckedout;
@@ -145,6 +172,9 @@ public class LibraryInMemoryImpl implements LibraryInterface{
             b.setId(id);
             //add to in memory list for fast lookup
             libraryList.add(b);
+            if (!read.hasNextLine()) {
+                id = b.getId();
+            }
         }
     }
 }
