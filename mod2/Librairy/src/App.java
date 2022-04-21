@@ -23,7 +23,7 @@ public class App {
         String getBookNamePrompt = "what is the title of this book";
         String getBookAuthorPrompt = "who is the author of this book";
         String getBookGenrePrompt = "which genre is this book located";
-        //String getBookIdPrompt = "what is the id of this book";
+        // String getBookIdPrompt = "what is the id of this book";
         String getBookTypePrompt = "what type will you serch by";
         impl.install();
         System.out.println("welcome to the library");
@@ -42,9 +42,9 @@ public class App {
                     break;
                 case 2:
                     bookType = console.getString(getBookTypePrompt);
-                    if ( !bookType.equals("author") && !bookType.equals("genre")) {
+                    if (!bookType.equals("author") && !bookType.equals("genre")) {
                         sampleBook = impl.findType(bookType, sampleBook);
-                        if (sampleBook != null ){
+                        if (sampleBook != null) {
                             console.printBook(sampleBook);
                         }
                     } else if (bookType.equals("author") || bookType.equals("genre")) {
@@ -53,14 +53,14 @@ public class App {
                             console.printBook(sampleList);
                         }
                     }
-                    
+
                     break;
                 case 3:
                     impl.print();
                     break;
                 case 4:
                     bookType = console.getString(getBookTypePrompt);
-                    if (!bookType.equals("author") && !bookType.equals("Genre")){
+                    if (!bookType.equals("author") && !bookType.equals("Genre")) {
                         sampleBook = impl.findType(bookType, sampleBook);
                         if (sampleBook != null && sampleBook.getCheckedOut() == false) {
                             impl.checkOut(sampleBook, true);

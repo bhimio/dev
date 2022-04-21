@@ -6,11 +6,11 @@ public class Client {
     private int age;
     private int books;
 
-    public Client(){
+    public Client() {
 
     }
 
-    public Client(int id, String name, int age){
+    public Client(int id, String name, int age) {
         this.age = age;
         this.id = id;
         this.name = name;
@@ -23,6 +23,7 @@ public class Client {
     public void setBooks(int books) {
         this.books = books;
     }
+
     public int getId() {
         return this.id;
     }
