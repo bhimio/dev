@@ -43,8 +43,7 @@ public class Console {
         int value = 0;
         String userInput;
         while (!isCorrect) {
-            System.out.println(prompt);
-            userInput = this.sc.nextLine();
+            userInput = this.getString(prompt);
             try {
                 value = Integer.parseInt(userInput);
                 isCorrect = true;
@@ -60,8 +59,7 @@ public class Console {
         float value = 0;
         String userInput;
         while (!isCorrect) {
-            System.out.println(prompt);
-            userInput = this.sc.nextLine();
+            userInput = this.getString(prompt);
             try {
                 value = Float.parseFloat(userInput);
                 isCorrect = true;
@@ -77,8 +75,7 @@ public class Console {
         double value = 0;
         String userInput;
         while (!isCorrect) {
-            System.out.println(prompt);
-            userInput = this.sc.nextLine();
+            userInput = this.getString(prompt);
             try {
                 value = Double.parseDouble(userInput);
                 isCorrect = true;
@@ -116,8 +113,7 @@ public class Console {
         boolean yn = false;
 
         do {
-            System.out.println(prompt + " " + yes + "/" + no);
-            whatToDo = sc.nextLine();
+            whatToDo = this.getString(prompt + " " + yes + "/" + no);
             if (whatToDo.equals(yes)) {
                 yn = true;
                 satifaction = true;

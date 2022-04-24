@@ -17,6 +17,7 @@ public class LibraryFileImpl implements LibraryInterface {
     private static int id;
     private static Scanner scanner = new Scanner(System.in);
     private static Console console = new Console(scanner);
+    public Book wrongBook = new Book("uh oh", "uh oh", "uh oh");
 
     @Override
     public void create(Book book, PrintWriter writer) {
@@ -34,31 +35,55 @@ public class LibraryFileImpl implements LibraryInterface {
 
     @Override
     public Book searchById(String value) {
-        // TODO Auto-generated method stub
+        int id;
+        try {
+            id = Integer.parseInt(value);
+            for (Book b : libraryList) {
+                if (id == b.getId()) {
+                    return b;
+                }
+            }
+        } catch (Exception e) {
+            return wrongBook;
+        }
         return null;
     }
 
     @Override
     public Book searchByName(String value) {
-        // TODO Auto-generated method stub
+        for (Book b : libraryList) {
+            if (value.equals(b.getTitle())) {
+                return b;
+            }
+        }
         return null;
     }
 
     @Override
     public List<Book> searchByAuthor(String value) {
-        // TODO Auto-generated method stub
-        return null;
+        List<Book> bookList = new ArrayList<>();
+        for (Book b : libraryList) {
+            if (value.equals(b.getAuthor())) {
+                bookList.add(b);
+            }
+        }
+        return bookList;
     }
 
     @Override
     public List<Book> searchByGenre(String value) {
-        // TODO Auto-generated method stub
-        return null;
+        List<Book> bookList = new ArrayList<>();
+        for (Book b : libraryList) {
+            if (value.equals(b.getGenre())) {
+                bookList.add(b);
+            }
+        }
+        return bookList;
     }
 
     @Override
     public void checkOut(Book book, boolean checkedOut) {
-
+        this.searchByName(book.getTitle()).setCheckedOut(checkedOut);
     }
 
     @Override
@@ -103,7 +128,7 @@ public class LibraryFileImpl implements LibraryInterface {
             // add to in memory list for fast lookup
             libraryList.add(b);
             if (!read.hasNextLine()) {
-                this.id = Integer.parseInt(parts[4]) + 1;
+                id = Integer.parseInt(parts[4]) + 1;
             }
         }
 
