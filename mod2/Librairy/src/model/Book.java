@@ -8,13 +8,11 @@ public class Book {
     private String genre;
     private boolean checkedOut;
 
-    
-    
-    public Book () {
+    public Book() {
 
     }
 
-    public Book (String title, String author, String genre) {
+    public Book(String title, String author, String genre) {
         this.title = title;
         this.author = author;
         this.genre = genre;
@@ -28,8 +26,6 @@ public class Book {
         this.checkedOut = checkedOut;
     }
 
-    
-
     public String getGenre() {
         return this.genre;
     }
@@ -37,6 +33,7 @@ public class Book {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
     public boolean isIsAvailable() {
         return this.isAvailable;
     }
@@ -44,8 +41,6 @@ public class Book {
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
     }
-
-    
 
     public String getTitle() {
         return this.title;
@@ -71,9 +66,9 @@ public class Book {
         this.id = id;
     }
 
-    public String toString () {
-        
+    public String toString() {
+
         return "";
     }
-    
+
 }
