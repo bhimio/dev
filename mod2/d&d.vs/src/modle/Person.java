@@ -1,7 +1,11 @@
 package modle;
-import java.util.List;
+
+import javax.annotation.processing.RoundEnvironment;
 
 public class Person {
+    private static RoundEnvironment round = new RoundEnvironment() {
+        
+    };
     private int str;
 
     public int getStr() {
@@ -82,7 +86,6 @@ public class Person {
         return this.wism;
     }
 
-
     private int car;
 
     public int getCar() {
@@ -99,5 +102,5 @@ public class Person {
         return this.carm;
     }
 
-    //private List itemList = new List();
+    // private List itemList = new List();
 }
