@@ -8,12 +8,12 @@ public class Console implements ConsoleIo {
     private Scanner sc = new Scanner(System.in);
 
     @Override
-    public int getInt(String prompt) {
+    public int readInt(String prompt) {
         boolean isCorrect = false;
         int value = 0;
         String userInput;
         while (!isCorrect) {
-            userInput = this.getString(prompt);
+            userInput = this.readString(prompt);
             try {
                 value = Integer.parseInt(userInput);
                 isCorrect = true;
@@ -25,11 +25,11 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public int getInt(String prompt, int min, int max) {
+    public int readInt(String prompt, int min, int max) {
         boolean isCorrect = false;
         int value;
         do {
-            value = this.getInt(prompt);
+            value = this.readInt(prompt);
             if (value > max) {
                 this.print("that number was to high");
             } else if (value < min) {
@@ -42,12 +42,12 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public float getFloat(String prompt) {
+    public float readFloat(String prompt) {
         boolean isCorrect = false;
         float value = 0;
         String userInput;
         while (!isCorrect) {
-            userInput = this.getString(prompt);
+            userInput = this.readString(prompt);
             try {
                 value = Float.parseFloat(userInput);
                 isCorrect = true;
@@ -59,11 +59,11 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public float getFloat(String prompt, float min, float max) {
+    public float readFloat(String prompt, float min, float max) {
         boolean isCorrect = false;
         float value;
         do {
-            value = this.getFloat(prompt);
+            value = this.readFloat(prompt);
             if (value > max) {
                 this.print("that number was to high");
             } else if (value < min) {
@@ -76,12 +76,12 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public double getDouble(String prompt) {
+    public double readDouble(String prompt) {
         boolean isCorrect = false;
         double value = 0;
         String userInput;
         while (!isCorrect) {
-            userInput = this.getString(prompt);
+            userInput = this.readString(prompt);
             try {
                 value = Double.parseDouble(userInput);
                 isCorrect = true;
@@ -93,11 +93,11 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public double getDouble(String prompt, Double min, Double max) {
+    public double readDouble(String prompt, Double min, Double max) {
         boolean isCorrect = false;
         double value;
         do {
-            value = this.getDouble(prompt);
+            value = this.readDouble(prompt);
             if (value > max) {
                 this.print("that number was to high");
             } else if (value < min) {
@@ -110,12 +110,12 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public boolean getboolean(String prompt) {
+    public boolean readboolean(String prompt) {
         boolean isCorrect = false;
         boolean value = false;
         String userInput;
         while (!isCorrect) {
-            userInput = this.getString(prompt);
+            userInput = this.readString(prompt);
             try {
                 value = Boolean.parseBoolean(userInput);
                 isCorrect = true;
@@ -127,12 +127,12 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public long getLong(String prompt) {
+    public long readLong(String prompt) {
         boolean isCorrect = false;
         String userInput;
         long value = 0;
         while (!isCorrect) {
-            userInput = this.getString(prompt);
+            userInput = this.readString(prompt);
             try {
                 value = Long.parseLong(userInput);
                 isCorrect = true;
@@ -143,12 +143,11 @@ public class Console implements ConsoleIo {
         return value;
     }
 
-
-    public long getLong(String prompt, long min, long max) {
+    public long readLong(String prompt, long min, long max) {
         boolean isCorrect = false;
         long value;
         do {
-            value = this.getLong(prompt);
+            value = this.readLong(prompt);
             if (value > max) {
                 this.print("that number was to high");
             } else if (value < min) {
@@ -161,7 +160,7 @@ public class Console implements ConsoleIo {
     }
 
     @Override
-    public String getString(String prompt) {
+    public String readString(String prompt) {
         this.print(prompt);
         return this.sc.nextLine();
     }
