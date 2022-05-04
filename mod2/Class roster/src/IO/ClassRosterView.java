@@ -6,7 +6,11 @@ import interfaces.ConsoleIo;
 import model.Student;
 
 public class ClassRosterView {
-    private ConsoleIo io = new Console();
+    ConsoleIo io;
+
+    public ClassRosterView(ConsoleIo io) {
+        this.io = io;
+    }
 
     public int printMenuAndGetSelection() {
         io.print("Main Menu");
@@ -50,43 +54,47 @@ public class ClassRosterView {
     }
 
     public void displayDisplayAllBanner() {
-	    io.print("=== Display All Students ===");
-	}
+        io.print("=== Display All Students ===");
+    }
 
-    public void displayDisplayStudentBanner () {
-	    io.print("=== Display Student ===");
-	}
+    public void displayDisplayStudentBanner() {
+        io.print("=== Display Student ===");
+    }
 
-	public String getStudentIdChoice() {
-	    return io.readString("Please enter the Student ID.");
-	}
+    public String getStudentIdChoice() {
+        return io.readString("Please enter the Student ID.");
+    }
 
-	public void displayStudent(Student student) {
-	    if (student != null) {
-	        io.print(student.getStudentId());
-	        io.print(student.getFirstName() + " " + student.getLastName());
-	        io.print(student.getCohort());
-	        io.print("");
-	    } else {
-	        io.print("No such student.");
-	    }
-	    io.readString("Please hit enter to continue.");
-	}
+    public void displayStudent(Student student) {
+        if (student != null) {
+            io.print(student.getStudentId());
+            io.print(student.getFirstName() + " " + student.getLastName());
+            io.print(student.getCohort());
+            io.print("");
+        } else {
+            io.print("No such student.");
+        }
+        io.readString("Please hit enter to continue.");
+    }
 
-    public void displayRemoveStudentBanner () {
-	    io.print("=== Remove Student ===");
-	}
+    public void displayRemoveStudentBanner() {
+        io.print("=== Remove Student ===");
+    }
 
-	public void displayRemoveSuccessBanner () {
-	    io.readString("Student successfully removed. Please hit enter to continue.");
-	}
-	
+    public void displayRemoveSuccessBanner() {
+        io.readString("Student successfully removed. Please hit enter to continue.");
+    }
+
     public void displayExitBanner() {
         io.print("Good Bye!!!");
     }
-    
+
     public void displayUnknownCommandBanner() {
         io.print("Unknown Command!!!");
     }
-    
+
+    public void displayErrorMessage(String errorMsg) {
+        io.print("=== ERROR ===");
+        io.print(errorMsg);
+    }
 }

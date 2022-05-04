@@ -2,6 +2,7 @@ package interfaces;
 
 import java.util.List;
 
+import dao.ClassRosterDaoException;
 import model.Student;
 
 public interface ClassRosterDao {
@@ -15,8 +16,9 @@ public interface ClassRosterDao {
 	     * @param student student to be added to the roster
 	     * @return the Student object previously associated with the given  
 	     * student id if it exists, null otherwise
+     * @throws ClassRosterDaoException
 	     */
-	    Student addStudent(String studentId, Student student);
+	    Student addStudent(String studentId, Student student) throws ClassRosterDaoException;
 	    
 	    /**
 	     * Returns a String array containing the student ids of all 
@@ -24,8 +26,9 @@ public interface ClassRosterDao {
 	     * 
 	     * @return String array containing the ids of all the students 
 	     * in the roster
+	     * @throws ClassRosterDaoException
 	     */
-	    List<Student> getAllStudents();
+	    List<Student> getAllStudents() throws ClassRosterDaoException;
 	    
 	    /**
 	     * Returns the student object associated with the given student id.
@@ -34,8 +37,9 @@ public interface ClassRosterDao {
 	     * @param studentId ID of the student to retrieve
 	     * @return the Student object associated with the given student id,  
 	     * null if no such student exists
+	     * @throws ClassRosterDaoException
 	     */
-	    Student getStudent(String studentId);
+	    Student getStudent(String studentId) throws ClassRosterDaoException;
 	    
 	    /**
 	     * Removes from the roster the student associated with the given id. 
@@ -45,6 +49,7 @@ public interface ClassRosterDao {
 	     * @param studentId id of student to be removed
 	     * @return Student object that was removed or null if no student 
 	     * was associated with the given student id
+	     * @throws ClassRosterDaoException
 	     */
-	    Student removeStudent(String studentId);
+	    Student removeStudent(String studentId) throws ClassRosterDaoException;
 }
