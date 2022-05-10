@@ -3,9 +3,6 @@ package modle;
 import javax.annotation.processing.RoundEnvironment;
 
 public class Person {
-    private static RoundEnvironment round = new RoundEnvironment() {
-        
-    };
     private int str;
 
     public int getStr() {
