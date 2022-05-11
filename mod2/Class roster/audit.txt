@@ -1,0 +1,11 @@
+2022-05-09T20:00:54.681710 : Student 1111 CREATED.
+2022-05-10T08:32:30.927770 : ||||||||||||||| Sucesfull: start runing program |||||||||||||||
+2022-05-10T08:32:54.832127 : Student 1111 REMOVED.
+2022-05-10T08:47:44.467095 : ||||||||||||||| Sucesfull: start runing program |||||||||||||||
+2022-05-10T08:48:25.732196 : Student 1111 REMOVED.
+2022-05-10T08:49:19.643601 : Student 1112 CREATED.
+2022-05-10T08:49:26.906286 : Student 1111 REMOVED.
+2022-05-10T08:49:37.850037 : ||||||||||||||| Sucesfull: stop program |||||||||||||||
+2022-05-11T10:36:21.716903 : ||||||||||||||| Sucesfull: start runing program |||||||||||||||
+2022-05-11T10:36:34.449032 : Student 1111 REMOVED.
+2022-05-11T10:36:43.859600 : ||||||||||||||| Sucesfull: stop program |||||||||||||||

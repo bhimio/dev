@@ -1,2 +1,1 @@
-0002::yaga::baborine::hapy.NET
-0001::bhima::raisz::1/2/3/4/5/6/7/8/9/0/
+1112::bhima::raisz::java 2021-2025

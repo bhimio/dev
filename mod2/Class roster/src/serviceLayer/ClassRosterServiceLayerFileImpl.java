@@ -80,6 +80,7 @@ public class ClassRosterServiceLayerFileImpl implements ClassRosterServiceLayer 
         // Write to audit log
         auditDao.writeAuditEntry("Student " + studentId + " REMOVED.");
         return removedStudent;
+        
     }
 
     @Override
