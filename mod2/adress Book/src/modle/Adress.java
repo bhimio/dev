@@ -5,9 +5,7 @@ public class Adress {
     private String lastName;
     private String adressName;
 
-    Adress(String firstName, String lastName, String adressName) {
-        this.setFirstName(firstName);
-        this.setLastName(lastName);
+    public Adress(String adressName) {
         this.setAdressName(adressName);
     }
 

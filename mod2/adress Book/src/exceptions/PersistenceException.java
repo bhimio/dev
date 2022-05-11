@@ -5,7 +5,7 @@ public class PersistenceException extends Exception {
         super(msg);
     }
 
-    PersistenceException(String msg, Throwable cause) {
+    public PersistenceException(String msg, Throwable cause) {
         super(msg, cause);
     }
 }

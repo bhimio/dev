@@ -55,4 +55,12 @@ public interface Dao {
      * @throws PersistenceException
      */
     void close() throws PersistenceException;
+
+    /**
+     * counts all the adresses
+     * 
+     * @return the number of adresses
+     * @throws PersistenceException
+     */
+    int count() throws PersistenceException;
 }

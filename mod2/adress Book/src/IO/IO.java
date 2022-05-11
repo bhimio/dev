@@ -5,7 +5,11 @@ import java.util.Scanner;
 import interfaces.consoleIO;
 
 public class IO implements consoleIO {
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
+
+    IO(Scanner sc) {
+        this.sc = sc;
+    }
 
     @Override
     public int readInt(String prompt) {
