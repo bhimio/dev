@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,14 +21,10 @@ public class DaoFileImpl implements Dao {
 	public static final String ADRESS_FILE = "book.txt";
 	public static final String DELIMITER = "::";
 
-	public DaoFileImpl() {
-
-	}
-
 	@Override
 	public Adress createAdress(Adress myAdress) throws PersistenceException {
-		// TODO Auto-generated method stub
-		return null;
+		Adress newAdress = adressMap.put(myAdress.getAdressName(), myAdress);
+		return newAdress;
 	}
 
 	@Override
@@ -44,8 +41,8 @@ public class DaoFileImpl implements Dao {
 
 	@Override
 	public List<Adress> getAllAdresses() throws PersistenceException {
-		// TODO Auto-generated method stub
-		return null;
+		this.loadRoster();
+		return new ArrayList<Adress>(adressMap.values());
 	}
 
 	@Override

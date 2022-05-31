@@ -22,4 +22,13 @@ public class Veiw {
 
         return io.readInt("", 1, 5);
     }
+
+    public void baner(String msg) {
+        io.print("===== " + msg + " =====");
+    }
+
+    public void errorMessage(String errorMsg) {
+        io.print("==== ERROR ====");
+        io.print(errorMsg);
+    }
 }
